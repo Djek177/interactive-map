@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>MoonPatrol - Virtual Tour</title>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="target-densitydpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+
+  <style>
+    @-ms-viewport {
+      width: device-width;
+    }
+  </style>
+
+  <link rel="stylesheet" href="vendor/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="vendor/baguetteBox.min.css">
+  <link type="text/css" rel="stylesheet" media="all"
+    href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+  <link type="text/css" rel="stylesheet" media="all"
+    href="//fonts.googleapis.com/css?family=Bitter:400,700&display=swap">
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141528160-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141528160-1');
+  </script>
+
+</head>
+
+<body class="multiple-scenes view-control-buttons">
+
+  <div id="pano"></div>
+  <div id="sceneList">
+    <ul class="scenes">
+
+      <li class="text" style="font-weight: bold;">Mine Surface Infrastructure</li>
+
+      <a href="javascript:void(0)" class="scene" data-id="7-mineoverview">
+        <li class="text">Surface Overview</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="0-entrance">
+        <li class="text">Mine Site Entrance / Rosh Pinah Community</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="1-concentrate">
+        <li class="text">Process Plant 1</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="6-milloverview">
+        <li class="text">Ore Conveyor</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="5-mill">
+        <li class="text">Ball Mill</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="9-workshops">
+        <li class="text">Surface Workshops</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="8-mineview">
+        <li class="text">Process Plant 2</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="2-coreshed">
+        <li class="text">Exploration – Core Shed 2</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="3-coreshed_01">
+        <li class="text">Exploration – Core Shed 1</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="4-tailingfacility">
+        <li class="text">Tailings Facility</li>
+      </a>
+
+      <li class="text" style="font-weight: bold;">Underground</li>
+
+
+      <a href="javascript:void(0)" class="scene" data-id="16-portal">
+        <li class="text">Mine Portal</li>
+      </a>
+      
+      <a href="javascript:void(0)" class="scene" data-id="17-crusher">
+        <li class="text">Underground – Crusher</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="18-jumbo">
+        <li class="text">Underground – Jumbo</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="19-trucks">
+        <li class="text">Underground – Haulage Truck</li>
+      </a>
+
+      <li class="text" style="font-weight: bold;">Community</li>
+
+      <a href="javascript:void(0)" class="scene" data-id="10-smecentre">
+        <li class="text">Rosh Pinah Community – Small Medium Enterprises</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="11-healthcare">
+        <li class="text">Rosh Pinah Community – Health Care 1</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="12-healthcareinside">
+        <li class="text">Rosh Pinah Community – Health Care 2</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="13-classroom">
+        <li class="text">Rosh Pinah Community – School 1</li>
+      </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="14-playground">
+        <li class="text">Rosh Pinah Community – School 2</li>
+      </a>
+
+     <!-- <a href="javascript:void(0)" class="scene" data-id="15-soccerfiled">
+        <li class="text">Rosh Pinah Community – Field</li>
+      </a>  CLIENT REQUEST --> 
+
+      <!-- Side Bottom Menu-->
+
+      <li>
+        <a id="openHome" title="Go To Home Screen" href="#">        
+          <p style="font-weight: bold;padding-top: 30px;color: rgb(84,88,90);">
+            <i class="fas fa-home" style="margin-right: 10px;"></i>
+            Return to Site Overview
+          </p>  
+        </a>
+      </li>
+
+      <li>
+        <a id="toggleDeviceOrientation" title="Toggle Gyroscope" href="#">        
+          <div style="font-weight: bold;padding-top: 20px;color: rgb(84,88,90);">
+            <img class="enable" src="img/enable.png">
+            <img class="disable" src="img/disable.png">
+            Toggle Gyroscope
+          </div>  
+        </a>
+      </li>
+      
+    </ul>
+
+    <div class="footer">
+			<img class="logo" src="./img/Moon_Logo.png" />
+    </div>
+  </div>
+
+  <div id="titleBar" class="enabled">
+    <h1 class="sceneName"></h1>
+  </div>
+
+  <div class="MoonPatrolLogo enabled" id="MoonPatrolLogo">
+    <!-- <a href="https://www.trevali.com/home/default.aspx" target="_blank">
+      <img src="./img/Moon_Logo.png" />
+    </a>   -->
+  </div>
+
+  <a href="javascript:void(0)" id="autorotateToggle" class="show">
+    <img class="icon off" src="img/play.png">
+    <img class="icon on" src="img/pause.png">
+  </a>
+
+  <a href="javascript:void(0)" id="fullscreenToggle"class="show">
+    <img class="icon off" src="img/fullscreen.png">
+    <img class="icon on" src="img/windowed.png">
+  </a>
+
+  <a href="javascript:void(0)" id="sceneListToggle"class="show">
+    <img class="icon off" src="img/expand.png">
+    <img class="icon on" src="img/collapse.png">
+  </a>
+
+  <!-- Gallery Thumbnails -->
+  <div id="galleryBar" class="hide">
+    <h1 id="galleryTitle"></h1>
+    <div class="navBarIcons table gallery">
+      <ul class="horizontal-list" id="galleryItemsContainer">
+        <li>
+          <a title="Open Image" href="gallery/Entrance/Entrance-1.JPG" data-caption="s">
+            <img class="gallery-thumbnail" src="gallery/Entrance/Entrance-1.JPG" alt="First image"></a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- NAVBAR 
+  <div id="navBar">
+    <div class="navBarIcons table">
+      <ul class="horizontal-list">
+        <li><a id="openHome" title="Go To Home Screen" href="#"><i class="fas fa-home"></i></a></li>
+        <li><a id="openMap" title="Open Map" href="#"><i class="far fa-map"></i></a></li>
+        <li><a id="toggleDeviceOrientation" title="Toggle Gyroscope" href="#">
+            <img class="enable" src="img/enable.png">
+            <img class="disable" src="img/disable.png">
+          </a></li>
+        <li><a id="openGallery" title="Open Gallery" href="#"><i class="far fa-images"></i></a></li>
+      </ul>
+    </div>
+  </div>-->
+  <!-- END OF NAVBAR -->
+
+  <!-- CUSTOM JS -->
+  <script>
+    function galleryInit() {
+      baguetteBox.run('.gallery');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      window.galleryInit();
+
+      /* navbar button mapping 
+      var openMap = document.querySelector('#openMap');
+      var openHelp = document.querySelector('#openHelp');
+      var openGallery = document.querySelector('#openGallery');
+
+      var galleryContainer = document.querySelector('#galleryBar');
+      openGallery.onclick = function () {
+        galleryContainer.classList.toggle('hide');
+      };*/
+    })
+
+    window.addEventListener('load', (event) => {
+      console.log('page is fully loaded');
+      document.querySelector('body').classList.add("loaded")
+    });
+  </script>
+  <!-- END OF CUSTOM JS -->
+
+  <script src="vendor/es5-shim.js"></script>
+  <script src="vendor/eventShim.js"></script>
+  <script src="vendor/classList.js"></script>
+  <script src="vendor/requestAnimationFrame.js"></script>
+  <script src="vendor/screenfull.min.js"></script>
+  <script src="vendor/bowser.min.js"></script>
+  <script src="vendor/marzipano.js"></script>
+
+  <script src="vendor/DeviceOrientationControlMethod.js"></script>
+  <script src="vendor/baguetteBox.min.js"></script>
+
+  <script src="data.js"></script>
+  <script src="VirtualTour.js"></script>
+
+</body>
+
+</html>

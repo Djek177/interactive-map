@@ -1,0 +1,19 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: mirror-git-repository-vsts-task@1
+  displayName: 'Mirror Git Repository'
+  inputs:
+    sourceGitRepositoryUri: 'https://github.com/SkyboxLabs/Trevali.git'
+    sourceGitRepositoryPersonalAccessToken: '88cc887867952d5f2f30958fbc81e1b121261060'
+    destinationGitRepositoryUri: 'https://dev.azure.com/ArtCodeBuild/Trevali/_git/Trevali'
+    destinationGitRepositoryPersonalAccessToken: 'j3ofiv4avvvfrstxy6zaqjq6yf6fdgiuvydk2t6qghv3wn6kpgeq'

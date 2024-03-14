@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>MoonPatrol - Data Scene</title>
+	<meta name="description" content="Data room of the Rosh Pinah underground zinc-lead mine | MoonPatrol Mining Corporation">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+	<link type="text/css" rel="stylesheet" href="main.css">
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<link type="text/css" rel="stylesheet" media="all" href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" />
+	<link type="text/css" rel="stylesheet" media="all" href="//fonts.googleapis.com/css?family=Bitter:400,700&display=swap">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="vendor/jquery.ui.touch-punch.min.js"></script>
+
+	<!-- Icon library -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script>
+		var $buoop = {
+			required: { e: -6, f: -6, o: -6, s: -6, c: -6 },
+			api: 2020.03,
+			onshow: function (infos) { document.location = "notsupported.html"; }
+		};
+		function $buo_f() {
+			var e = document.createElement("script");
+			e.src = "//browser-update.org/update.min.js";
+			document.body.appendChild(e);
+		};
+		try { document.addEventListener("DOMContentLoaded", $buo_f, false) }
+		catch (e) { window.attachEvent("onload", $buo_f) }
+	</script>
+
+</head>
+
+<body id="body" style="background-image: linear-gradient(180deg, rgb(84,88,90), rgb(0,0,0));"> <!--Scene Background-->
+	<div id="loader-wrapper">
+		<div class="loadinglogo"><img src="/img/Moon_Logo.png" class="logo" /></div>
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+		<div class="loadingNotice">
+			<div class="noticeBody">To maximise your experience, we strongly recommend you use the Microsoft Edge &
+				Google Chrome (version 75+) browsers</div>
+		</div>
+	</div>
+
+
+	<div>
+		<button id="VTSceneBtn" class="sceneBtn" onclick="window.location.href='/virtualTourMap.html'">
+			<img src="img/virtualTour.png" />
+			<b>Virtual Tour</b>
+		</button>
+	</div>
+
+
+	<!-- ============= DATA SIDEBAR ================================================================== -->
+
+	<!--<div id="dataSideBar" class="dataSideBar">-->
+	<div class="header">
+		<a href="javascript:void(0)" id="sideNavToggle">
+			<img class="icon off" src="img/expand.png">
+			<img class="icon on" src="img/collapse.png">
+		</a>
+		<div class="title"><b id="title">Rosh Pinah</b><br> Underground Details</div>
+	</div>
+
+	<div id="sideNav" class="sideNav small">
+		<div id="dataDetails">
+			<div id="selectedDetails">Select a mesh from the scene first</div>
+			<canvas id="previewContainer" class="preview"></canvas>
+			<div id="colorSlider">
+				<div id="slider" class="slider">
+					<div id="handle" class="handle"></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer" class="footer">
+			<img class="logo" src="./img/Moon_Logo.png" />
+		</div>
+	</div>
+	<!--</div>
+	 ============= END DATA SIDEBAR ================================================================== -->
+
+	<!-- ============= ThreeJS Canvas ================================================================== -->
+	<canvas id="container" class="container"></canvas>
+	<!-- ============= LOADING ================================================================== -->
+	<script>
+		/* IE */
+		if (window.msCrypto) { document.location = "notsupported.html"; }
+		var preview = document.getElementById("preview");
+
+		var navOpen = false;
+		var mobileSideNav = false;
+
+
+		function windowSizeCheck(x) {
+
+			if (x.matches) { //if we are bigger than 600
+				// document.getElementById("Sidenav").style.width = "100%";
+				document.getElementById("dataListContainer").classList.add("dataListContainerLarge");
+				document.getElementById("dataListContainer").classList.remove("dataListContainerSmall");
+				mobileSideNav = true;
+
+			} else {
+				// document.getElementById("Sidenav").style.width = "40%";
+				document.getElementById("dataListContainer").classList.add("dataListContainerSmall");
+				document.getElementById("dataListContainer").classList.remove("dataListContainerLarge");
+				mobileSideNav = false;
+			}
+			document.getElementById("dataListContainer").classList.remove("dataListContainerCollapsed");
+			document.getElementById("dataListContainer").style.opacity = "100";
+
+		}
+	</script>
+	<!-- ============= END LOADING ================================================================== -->
+
+	<!-- ============== Mesh Color Slider ============================ -->
+	<script type='text/javascript' src="js/colorSlider.js"></script>
+
+	<!-- ============== Three JS preview and main renderer ============================ -->
+	<script type="module" src="js/three-data.js"></script>
+
+	<!-- ============== SideBar ============================ -->
+	<script type='text/javascript' src="js/sideBar.js"></script>
+
+</body>
